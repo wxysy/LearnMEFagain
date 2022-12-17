@@ -30,16 +30,16 @@ namespace MEFPluginCore
         public string Name { get; }
         public string Version { get; }//接口中有默认值的属性也要实现。
         public string Description { get; }
-        public bool NeedCreatInstanceEverytime { get; }
+        public bool NeedCreatNewInstanceEverytime { get; }
 
-        public MEFCustomExportMetadataAttribute(bool needCreatInstanceEverytime, string id, string name, string version = "1.0.0.0", string description = "")
+        public MEFCustomExportMetadataAttribute(bool needCreatNewInstanceEverytime, string id, string name, string version = "1.0.0.0", string description = "")
             : base(typeof(IMEFView))
         {
             ID = id;
             Name = name;
             Version = version;//接口中有默认值的属性也要赋值。
             Description = description;
-            NeedCreatInstanceEverytime = needCreatInstanceEverytime;
+            NeedCreatNewInstanceEverytime = needCreatNewInstanceEverytime;
         }
     }
 }

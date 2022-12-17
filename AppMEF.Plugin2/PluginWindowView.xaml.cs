@@ -42,7 +42,7 @@ namespace AppMEF.Plugin2
         /* 该变量用于存储导入的MEF部件，非常重要。CreatInstance方法也可能会用到。*/
         IMEFService mEFService;
 
-        public void CreatInstanceEverytime(params object[] input)
+        public void CreatNewInstanceEverytime(params object[] input)
         {
             /* 该方法为接口 IMEFView 中的方法 CreatInstance 的实现。
              * 1、如果该插件不需要创建实例(如 Page、UserControl)，那只需要在该方法的实现中保持为空。
