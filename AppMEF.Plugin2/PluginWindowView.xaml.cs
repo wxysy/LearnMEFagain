@@ -49,6 +49,8 @@ namespace AppMEF.Plugin2
              * 2、如果该插件需要创建实例(如 Window)，就要在该方法的实现中生成实例。
              */
             //----这里就是情况2----
+
+            /**** 使用本类中的 字段(mEFService) 来带入其他MEF组件。****/
             PluginWindowView pp = new(mEFService);
             pp.WindowStartupLocation = WindowStartupLocation.CenterScreen;
             pp.Show();
