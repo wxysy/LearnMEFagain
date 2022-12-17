@@ -19,7 +19,7 @@ namespace AppMEF.Plugin2
     /// <summary>
     /// PluginWindowView.xaml 的交互逻辑
     /// </summary>
-    [MEFCustomExportLazyMetadata(true,"2233", "插件2")]
+    [MEFCustomExportMetadata(true,"2233", "插件2")]
     public partial class PluginWindowView : Window, IMEFView//**必须继承IMEFView接口**
     {
         [ImportingConstructor]//构造函数有参数时就要使用
@@ -42,7 +42,7 @@ namespace AppMEF.Plugin2
         /* 该变量用于存储导入的MEF部件，非常重要。CreatInstance方法也可能会用到。*/
         IMEFService mEFService;
 
-        public void CreatInstance(params object[] input)
+        public void CreatInstanceEverytime(params object[] input)
         {
             /* 该方法为接口 IMEFView 中的方法 CreatInstance 的实现。
              * 1、如果该插件不需要创建实例(如 Page、UserControl)，那只需要在该方法的实现中保持为空。
@@ -50,6 +50,7 @@ namespace AppMEF.Plugin2
              */
             //----这里就是情况2----
             PluginWindowView pp = new(mEFService);
+            pp.WindowStartupLocation = WindowStartupLocation.CenterScreen;
             pp.Show();
         }
 

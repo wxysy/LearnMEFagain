@@ -12,7 +12,7 @@ namespace MEFPluginCore
         /* 凡是 IMetadata 中没有默认值的属性，都必须要在插件处赋值，否则找不到插件。*/
         string ID { get; }
         string Name { get; }
-        bool NeedCreatInstance { get; }
+        bool NeedCreatInstanceEverytime { get; }
 
         /* 已经有默认值的就不必须，可改可不改。*/
         [DefaultValue("1.0.0.0")]

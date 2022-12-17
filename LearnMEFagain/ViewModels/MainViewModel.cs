@@ -87,6 +87,7 @@ namespace LearnMEFagain.ViewModels
 
         #region 插件集合通用型导入流程(插件视图View 为用户控件UserControl、页面Page、窗体Window均可)
         /* 《情况说明》
+         * --需添加NuGget包：System.ComponentModel.Composition--
          * 以往，对于 不需要每次创建实例(如 Page、UserControl)的部件 和 需要每次创建实例(如 Window) 的MEF组件。
          * 往往采用不同的处理方式，分情况处理。
          * 情况1：不需要每次创建实例(如 Page、UserControl)的MEF组件，使用 Lazy<T, TMetadata> 来加载。
@@ -102,7 +103,7 @@ namespace LearnMEFagain.ViewModels
          * 可以，解决方案就是：
          * 1、在MEF组件继承的接口中(本例为IMEFView)，定义一个 CreatInstance 方法。
          * 2、按照常规方式使用 Lazy类型 加载MEF组件。
-         * 3、通过调用CreatInstance方法来创建新的实例窗口。
+         * 3、通过调用CreatInstanceEverytime方法来创建新的实例窗口。
          * 该方法的作用：
          * 1、如果该插件不需要创建实例(如 Page、UserControl)，那只需要在该方法的实现中保持为空。
          * 2、如果该插件需要创建实例(如 Window)，就要在该方法的实现中生成实例。
@@ -178,7 +179,7 @@ namespace LearnMEFagain.ViewModels
         public void ActivactedWindowPlugin()
         {
             /* 使用 Lazy<T,TMetadata> 时，如何加载需要每次创建实例的窗口。*/
-            CurrentPlugin_Window?.CreatInstance();
+            CurrentPlugin_Window?.CreatInstanceEverytime();
 
             /* 使用 ExportFactory<T,TMetadata> 时，如何加载需要每次创建实例的窗口。
              * var temp = CurrentPlug_CreatInstanceMode?.CreateExport();

@@ -24,22 +24,22 @@ namespace MEFPluginCore
 
     [MetadataAttribute]
     [AttributeUsage(AttributeTargets.Class)]
-    public class MEFCustomExportLazyMetadataAttribute : ExportAttribute, IMEFMetadata
+    public class MEFCustomExportMetadataAttribute : ExportAttribute, IMEFMetadata
     {
         public string ID { get; }
         public string Name { get; }
         public string Version { get; }//接口中有默认值的属性也要实现。
         public string Description { get; }
-        public bool NeedCreatInstance { get; }
+        public bool NeedCreatInstanceEverytime { get; }
 
-        public MEFCustomExportLazyMetadataAttribute(bool needCreatInstance, string id, string name, string version = "1.0.0.0", string description = "")
+        public MEFCustomExportMetadataAttribute(bool needCreatInstanceEverytime, string id, string name, string version = "1.0.0.0", string description = "")
             : base(typeof(IMEFView))
         {
             ID = id;
             Name = name;
             Version = version;//接口中有默认值的属性也要赋值。
             Description = description;
-            NeedCreatInstance = needCreatInstance;
+            NeedCreatInstanceEverytime = needCreatInstanceEverytime;
         }
     }
 }
