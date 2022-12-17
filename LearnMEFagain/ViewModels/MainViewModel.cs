@@ -179,7 +179,7 @@ namespace LearnMEFagain.ViewModels
         public void ActivactedWindowPlugin()
         {
             /* 使用 Lazy<T,TMetadata> 时，如何加载需要每次创建实例的窗口。*/
-            CurrentPlugin_Window?.CreatNewInstanceEverytime();
+            CurrentPlugin_Window?.CreatNewInstance();
 
             /* 使用 ExportFactory<T,TMetadata> 时，如何加载需要每次创建实例的窗口。
              * var temp = CurrentPlug_CreatInstanceMode?.CreateExport();
