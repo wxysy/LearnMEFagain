@@ -24,7 +24,7 @@ namespace MEFPluginCore
 
     [MetadataAttribute]
     [AttributeUsage(AttributeTargets.Class)]
-    public class MEFCustomExportMetadataAttribute : ExportAttribute, IMEFMetadata
+    public sealed class MEFCustomExportMetadataAttribute : ExportAttribute, IMEFMetadata
     {
         public string ID { get; }
         public string Name { get; }
